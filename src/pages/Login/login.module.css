@@ -1,0 +1,92 @@
+.login_style {
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size:100% 100%;
+    position: relative;
+    min-height: 700px;
+    min-width: 1280px;
+    background-image: url(../../assets/img/bgc.jpg);
+  }
+  .contents {
+    position: absolute;
+    width: 66.67%;
+    height: 49.15%;
+    overflow: hidden;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    box-shadow: 1px 1px 12px 6px rgba(0,0,0,0.5) ;
+    border-radius: 10px;
+  }
+  .contents .left{
+    float: left;
+    height: 100%;
+    width: 63.7%;
+    background: rgba(0,0,0,0.1);
+    padding-top: 10%;
+    padding-left: 4.7%;
+  }
+  .contents .right {
+    float: left;
+    height: 100%;
+    width: 36.3%;
+    background: #ffffff;
+    opacity: 0.9;
+  }
+  .left .title {
+    height: 50px;
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #ffffff;
+    
+  }
+  .left .eng {
+    font-size: 12px;
+    color: #ffffff;
+  }
+  .right .login_infos {
+    width: 74.6%;
+    margin: 0 auto;
+  
+    padding-top: 17.2%;
+    height: 87%;
+  }
+  .right .forget {
+    width: 100%;
+    height: 13%;
+    background: #f4f4f4;
+    color: #788190;
+    font-size: 9.6px;
+    text-align: center;
+    line-height: 45px;
+    cursor: default;
+  }
+  .right .welcome {
+    font-size: 18px;
+    color: #28374f;
+    height: 40px;
+  }
+  .right .names {
+    font-size: 14px;
+    color: #696969;
+    height: 20px;
+  }
+  .myform{
+    margin-top:20px;
+  }
+
+
+
+  .footbutton {
+    
+    width:100%!important;
+    border-radius: 3px;
+   
+    background-color: #0062ba;
+    color: #ffffff;
+    cursor: pointer;
+    font-size: 14px;
+  }
+  

@@ -1,0 +1,1 @@
+export const CHANGE_USER_INFO="change_user_info"
