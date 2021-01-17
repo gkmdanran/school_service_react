@@ -6,10 +6,10 @@ import { EditOutlined,DeleteOutlined,PlusOutlined } from '@ant-design/icons';
 import style from './systemuser.module.css'
 import {list,delUser,addSysUser,detail,editUser} from '@/services/systemUser'
 import {getCities} from '@/services/City.js'
-
+import checkLogin from '../../components/PrivateRoute'
 const { Option } = Select;
 var id=''
-export default memo(function SystemUser() {
+const cmp=memo(function SystemUser() {
     
     const [searchParams, setSearchParams] = useState({page:1,limit:5,username:''})
     const [SystemUserList, setSystemUserList] = useState([])
@@ -230,3 +230,4 @@ export default memo(function SystemUser() {
         </div>
     )
 })
+export default checkLogin(cmp)

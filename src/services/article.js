@@ -14,3 +14,17 @@ export const hideArticle=(data)=>request({
         data,
         method:'post'
 })
+export const insertArticle=(data)=>request({
+        url:'article/add',
+        data,
+        method:'post'
+})
+export const getArticle=(id)=>request({
+        url:'article/detail',
+        params:{id}
+})
+export const edit=(data)=>request({
+        url:'article/edit',
+        data,
+        method:'post'
+})

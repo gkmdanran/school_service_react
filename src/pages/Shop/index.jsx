@@ -5,8 +5,9 @@ import { SearchOutlined } from '@ant-design/icons';
 import {list,changeStatus} from '@/services/shop.js'
 import dayjs from 'dayjs'
 import style from './shop.module.css'
+import checkLogin from '../../components/PrivateRoute'
 const { Option } = Select;
-export default memo(function Lose() {
+export default checkLogin(memo(function Lose() {
     const [searchParams, setSearchParams] = useState({page:1,limit:5,goods_type:'',status:'',goods_name:''})
     const [ShopList, setShopList] = useState([])
     const [total, setTotal] = useState(0)
@@ -120,12 +121,15 @@ export default memo(function Lose() {
             fixed:'right',
             render: (text, record) => (
                 <Space size="middle">
-                    <Popconfirm placement="top" title={'确认下架该商品吗?'} onConfirm={()=>changeType(record)} okText="确认" cancelText="取消">
+                    
                     {
-                        record.status!=='4'?<Button type="danger" >下架</Button>:<span style={{color:'red'}}>已下架</span>
-                        
+                        record.status!=='4'?(
+                            <Popconfirm placement="top" title={'确认下架该商品吗?'} onConfirm={()=>changeType(record)} okText="确认" cancelText="取消">
+                                 <Button type="danger" >下架</Button>
+                            </Popconfirm>
+                        ) :<span style={{color:'red'}}>已下架</span>
                     }
-                    </Popconfirm>
+                    
                     <span></span>
                 </Space>
             ),
@@ -203,5 +207,5 @@ export default memo(function Lose() {
             })}}/>
         </div>
     )
-})
+}))
 

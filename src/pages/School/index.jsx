@@ -6,11 +6,11 @@ import { Breadcrumb,Space,Button,Table,Input,message,Popconfirm,Modal,Form, Sele
 import { EditOutlined,DeleteOutlined,PlusOutlined } from '@ant-design/icons';
 import {list,delSchool,addSchools,detail,editSchool} from '@/services/school.js'
 import {getProvinces,getCityByPid,} from '@/services/City.js'
-
+import checkLogin from '../../components/PrivateRoute'
 import style from './school.module.css'
 var id=''
 const { Option } = Select;
-export default memo(function School() {
+export default checkLogin(memo(function School() {
     const [searchParams, setSearchParams] = useState({page:1,limit:5,name:''})
     const [SchoolList, setSchoolList] = useState([])
     const [CityList, setCityList] = useState([])
@@ -221,4 +221,4 @@ export default memo(function School() {
             </div>
         </div>
     )
-})
+}))

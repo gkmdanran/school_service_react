@@ -6,8 +6,8 @@ import {list,changeActive} from '@/services/User.js'
 import dayjs from 'dayjs'
 
 import style from './user.module.css'
-
-export default memo(function School() {
+import checkLogin from '../../components/PrivateRoute'
+export default checkLogin(memo(function School() {
     const [searchParams, setSearchParams] = useState({page:1,limit:5,username:'',nickname:'',realname:''})
     const [CilentList, setCilentList] = useState([])
     const [total, setTotal] = useState(0)
@@ -221,4 +221,4 @@ export default memo(function School() {
             
         </div>
     )
-})
+}))

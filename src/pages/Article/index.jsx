@@ -4,7 +4,8 @@ import { Breadcrumb,Space,Button,Table,message,Popconfirm,Input} from 'antd';
 import {list,delArticle,hideArticle} from '@/services/article.js'
 import { EditOutlined,DeleteOutlined,EyeInvisibleOutlined,EyeOutlined,PlusOutlined} from '@ant-design/icons';
 import dayjs from 'dayjs'
-export default memo(function Article(props) {
+import checkLogin from '../../components/PrivateRoute'
+export default checkLogin(memo(function Article(props) {
     const [searchParams, setSearchParams] = useState({page:1,limit:5,title:''})
     const [ArticleList, setArticleList] = useState([])
     const [total, setTotal] = useState(0)
@@ -39,6 +40,12 @@ export default memo(function Article(props) {
             title: '标题',
             dataIndex: 'title',
             key: 'title',
+            ellipsis: true,
+        },
+        {
+            title: '作者',
+            dataIndex: 'username',
+            key: 'username',
             ellipsis: true,
         },
         {
@@ -92,7 +99,7 @@ export default memo(function Article(props) {
             
             render: (text, record) => (
                 <Space size="middle">
-                    <Button type="primary" shape="circle" icon={<EditOutlined />}/>
+                    <Button type="primary" shape="circle"  onClick={()=>props.history.push(`/homepage/addarticle?id=${record.id}`)} icon={<EditOutlined />}/>
                     <Popconfirm placement="top" title={'确认删除该文章吗？'} onConfirm={e=>deleteArticle(record)} okText="确认" cancelText="取消">
                         <Button type="danger" shape="circle" icon={<DeleteOutlined />}/>
                     </Popconfirm>
@@ -146,4 +153,4 @@ export default memo(function Article(props) {
             })}}/>
         </div>
     )
-})
+}))
